@@ -57,6 +57,8 @@ class ManageUserView(viewsets.ModelViewSet,
         user = self.request.user
 
         if self.action == 'list' or self.action == 'create':
+            if not user.is_staff and self.get_object().is_staff:
+                return DoctorSerializer
             return UserSerializer
 
         else:
