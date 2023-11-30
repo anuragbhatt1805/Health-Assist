@@ -7,6 +7,7 @@ from django.contrib.auth.models import (
     PermissionsMixin
 )
 
+
 # Custom Function for Profile Picture
 def profile_file_name(instance, filepath):
     "Function for Profile Picture"
@@ -56,7 +57,6 @@ class Insurance(models.Model):
     amount = models.IntegerField()
     expiry = models.DateField()
     objects = models.Manager()
-
 
 class User(AbstractBaseUser, PermissionsMixin):
     "Custom user model that supports using email instead of email"
