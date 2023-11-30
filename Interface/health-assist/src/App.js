@@ -4,6 +4,7 @@ import NavBar from './components/navb/NavBar';
 import Login from './components/LoginSignUp/Login';
 import SignUp from './components/LoginSignUp/SignUp';
 import Home from './Pages/Home';
+import Appointment from './Pages/Appointment';
 import { BrowserRouter,Routes, Route} from 'react-router-dom'
 
 
@@ -22,6 +23,7 @@ function App() {
             <Route index element={<Home/>}/>
             <Route path='/login' element={<Login/>}/>
             <Route path='/signup' element={<SignUp/>}/>
+            <Route path='/appointment' element={<Appointment/>}/>
         </Routes>
         </BrowserRouter>
       {/* <NavBar/>
