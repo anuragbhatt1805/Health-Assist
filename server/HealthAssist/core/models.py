@@ -22,8 +22,6 @@ class UserManager(BaseUserManager):
         "Create and save a new user"
         if not email:
             raise ValueError('Users must have an email')
-        if not extra_fields.get('aadhaar'):
-            raise ValueError('Users must have an aadhaar number')
         if not extra_fields.get('name'):
             raise ValueError('Users must have a name')
         if not extra_fields.get('dob'):
@@ -63,7 +61,7 @@ class User(AbstractBaseUser, PermissionsMixin):
 
     # The following fields are required by Django
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
-    aadhaar = models.CharField(max_length=12, unique=True, editable=False)
+    aabhaId = models.CharField(max_length=20, unique=True, editable=False, default=None, null=True)
     email = models.EmailField(max_length=255, unique=True)
     phone = models.CharField(max_length=15, unique=True, null=True)
 
@@ -86,7 +84,7 @@ class User(AbstractBaseUser, PermissionsMixin):
 
     # External Important Fields
     USERNAME_FIELD = 'email'
-    REQUIRED_FIELDS = ['name', 'aadhaar', 'dob']
+    REQUIRED_FIELDS = ['name', 'dob']
 
     # The following fields are required by Django
     objects = UserManager()
