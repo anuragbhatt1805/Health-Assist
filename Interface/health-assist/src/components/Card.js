@@ -2,7 +2,7 @@ import React from 'react'
 
 function Card() {
   return (
-    <div className="col-md-4 mb-4">
+    <div className="col-md-4 mb-4 p-5">
         <div class="card" style={{ width: '18rem' }}>
             <img class="card-img-top" src="..." alt="Card image cap"/>
             <div class="card-body">
