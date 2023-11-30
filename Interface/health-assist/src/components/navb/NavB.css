@@ -1,0 +1,38 @@
+/* Header.css */
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #4fa3a3; /* Green-blue color */
+    padding: 15px;
+    color: white;
+  }
+  
+  .logo {
+    font-weight: bold;
+    font-size: 24px;
+  }
+  
+  .navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  .navbar-center {
+    display: flex;
+    flex: 1;
+    justify-content: center;
+    gap: 20px;
+  }
+  
+  .navbar-center a {
+    text-decoration: none;
+    color: white;
+  }
+  
+  .login-signup {
+    margin-left: auto;
+  }
+  
