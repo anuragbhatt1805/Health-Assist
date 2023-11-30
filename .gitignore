@@ -37,6 +37,7 @@ bin/
 parts/
 sdist/
 var/
+pip/
 wheels/
 share/python-wheels/
 *.egg-info/
