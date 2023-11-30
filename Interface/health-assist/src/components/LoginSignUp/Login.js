@@ -2,6 +2,8 @@
 
 import React, { useState } from 'react';
 import './AuthForm.css'; // Import the CSS file for styling
+import {Link} from 'react-router-dom';
+
 
 const Login = ({ switchToSignup }) => {
   const [email, setEmail] = useState('');
@@ -36,7 +38,7 @@ const Login = ({ switchToSignup }) => {
         />
         <button type="submit">Login</button>
       </form>
-      <p>Don't have an account? <span className='switch' onClick={switchToSignup}>Sign Up</span></p>
+      <p>Don't have an account? <Link to="/signup">Sign Up</Link></p>
     </div>
   );
 };
