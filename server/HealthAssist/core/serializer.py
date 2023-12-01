@@ -52,11 +52,18 @@ class UserSerializer(serializers.ModelSerializer):
             user.save()
 
         if insurance:
-            insurance = Insurance.objects.get(id=insurance)
-            if not insurance:
-                raise ValueError('Insurance does not exist')
-            user.insurance = insurance
-            user.save()
+            insurance_obj = Insurance.objects.get_or_create(
+                id=insurance['id'],
+                    company=insurance['company'],
+                    policy=insurance['policy'],
+                    amount=insurance['amount'],
+                    expiry=insurance['expiry']
+            )
+            if insurance_obj[1]:
+                user.insurance = insurance_obj[0]
+                user.save()
+            else:
+                raise ValueError('Insurance object not found')
 
         return user
 

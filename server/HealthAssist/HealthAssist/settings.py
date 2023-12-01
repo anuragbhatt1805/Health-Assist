@@ -73,6 +73,12 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'HealthAssist.wsgi.application'
+ASGI_APPLICATION = "chat_app.asgi.application"
+CHANNEL_LAYERS = {
+    "default": {
+        "BACKEND": "channels.layers.InMemoryChannelLayer",
+    }
+}
 
 
 # Database
@@ -80,8 +86,12 @@ WSGI_APPLICATION = 'HealthAssist.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'healthassist',
+        'USER': 'postgres',
+        'PASSWORD': '12345678',
+        'HOST': '127.0.0.1',
+        'PORT': '5432',
     }
 }
 
