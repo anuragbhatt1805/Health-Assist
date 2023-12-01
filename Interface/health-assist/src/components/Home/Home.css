@@ -73,4 +73,10 @@ body {
   .feature-box p {
     font-size: 16px;
   }
-  
+  .reviewer{ 
+    max-height: 60px;
+    max-width: 60px;
+  }
+  .ratings{
+    font-size: 10px;
+  }
