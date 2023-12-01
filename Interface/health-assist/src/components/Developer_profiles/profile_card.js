@@ -7,35 +7,39 @@ import './PCard_Css.css';
 
 function profile_card() {
   return (
+    <div className='team'>
+        <h1 >Developer Team</h1>
+
     <div className="Profile">
         <div className="card" >  {/*style={{ width: '15rem' }}>*/}
-            <img class="card-img-top" src= {anurag}  alt="Anurag Bhatt IMG"/>
+            <img className="card-img" src= {anurag}  alt="Anurag Bhatt IMG"/>
             <div class="card-body">
                 <h5 class="card-title">Anurag Bhatt</h5>
                 <p class="card-text">Backend Development and management  of database using the Django framework</p>
             </div>
         </div>
         <div className="card" style={{ width: '15rem' }}>
-            <img class="card-img-top" src= {yash}  alt="Yash Raj Saxena IMG"/>
+            <img className="card-img" src= {yash}  alt="Yash Raj Saxena IMG"/>
             <div class="card-body">
                 <h5 class="card-title">Yash Raj Saxena</h5>
                 <p class="card-text">Full stack Development using React, Django and AI/ML model design Implementation </p>
             </div>
         </div>
         <div className="card" style={{ width: '15rem' }}>
-            <img class="card-img-top" src= {mayank}  alt="Mayank Nandwani IMG"/>
+            <img className="card-img" src= {mayank}  alt="Mayank Nandwani IMG"/>
             <div class="card-body">
                 <h5 class="card-title">Mayank Nandwani </h5>
                 <p class="card-text">Frontend  Development using React and UI Development </p>
             </div>
         </div>
         <div className="card" style={{ width: '15rem' }}>
-            <img class="card-img-top" src= {udisha}  alt="Udisha Sahu IMG"/>
+            <img className="card-img" src= {udisha}  alt="Udisha Sahu IMG"/>
             <div class="card-body">
                 <h5 class="card-title">Udisha Sahu</h5>
                 <p class="card-text">Frontend  Development using React and content  Creation</p>
             </div>
         </div>
+    </div>
     </div>
   )
 }

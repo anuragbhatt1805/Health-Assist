@@ -7,3 +7,7 @@
 .card{
     width:  15rem;
 }
+.card-img{
+height: 15rem;
+object-fit: cover;
+}

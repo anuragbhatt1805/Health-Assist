@@ -1,7 +1,7 @@
 // FAQ.js
 
 import React, { useState } from 'react';
-
+import './QACss.css'
 const FAQ = () => {
   const [faqs, setFaqs] = useState([
     {
@@ -43,15 +43,16 @@ const FAQ = () => {
   };
 
   return (
-    <div>
+    <div className='faqtextbox'>
       <h1>Frequently Asked Questions</h1>
       {faqs.map((faq, index) => (
-        <div key={index} style={{ marginBottom: '20px' }}>
+        <div key={index} style={{ marginBottom: '20px', padding:'10px' }}>
           <div
             style={{
               cursor: 'pointer',
               borderBottom: '1px solid #ccc',
               padding: '10px',
+              fontSize: 'Large',
               display: 'flex',
               justifyContent: 'space-between',
               alignItems: 'center',

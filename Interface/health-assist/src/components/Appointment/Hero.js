@@ -42,12 +42,12 @@ function Hero() {
               onChange={(e) => setSymptoms(e.target.value)}
               required
             />
-            <button type="button" className="btn btn-primary ms-3" onClick={handleSymptomsSubmit}>
+            <button type="button" className="btn btn-primary ms-3" style={{ backgroundColor: '#4fa3a3' }} onClick={handleSymptomsSubmit}>
               Enter
             </button>
           </div>
           {/* Other form fields */}
-          <button type="submit" className="btn btn-primary">Schedule Appointment</button>
+          <button type="submit" className="btn btn-primary" style={{ backgroundColor: '#4fa3a3' }}>Schedule Appointment</button>
         </form>
       </div>
     </div>
