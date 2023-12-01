@@ -1,11 +1,12 @@
 import React from 'react'
+import ChatWindow from '../components/Chat /ChatComponent'
 
-function chat() {
+function chatpages() {
   return (
     <div>
-        
+        <ChatWindow/>
     </div>
   )
 }
 
-export default chat
+export default chatpages

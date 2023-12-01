@@ -8,6 +8,7 @@ import Appointment from './Pages/Appointment';
 import Profile from './Pages/Profile';
 import { BrowserRouter,Routes, Route} from 'react-router-dom'
 import Faq from './Pages/Faq';
+import ChatW from './Pages/Chat'
 
 
 
@@ -29,6 +30,7 @@ function App() {
             <Route path='/appointment' element={<Appointment/>}/>
             <Route path='/profile' element={<Profile />} />
             <Route path='/faq' element={<Faq/>}/>
+            <Route path = '/chat' element={<ChatW/>}/>
         </Routes>
         </BrowserRouter>
       {/* <NavBar/>
