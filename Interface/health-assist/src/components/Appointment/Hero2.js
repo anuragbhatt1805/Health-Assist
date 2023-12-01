@@ -28,12 +28,12 @@ function Hero2() {
   };
 
   return (
-    <div className="container mt-4">
-      <div className="card p-4">
+    <div className="container mt-4 ">
+      <div className="p-4">
         <h2 className="mb-3">Recommended Doctors</h2>
         {doctorsDetails.map((doctor, index) => (
-          <div key={index} className="row mb-3 mt-4 " style={{ backgroundColor: '#D3D3D3' }}>
-            <div className="col-md-8">
+          <div key={index} className="row mb-3 mt-4 p-2 rounded" style={{ backgroundColor: '#D3D3D3' }}>
+            <div className="col-md-8 ">
               <h3>{doctor.name}</h3>
               <p>{doctor.specialization}</p>
             </div>

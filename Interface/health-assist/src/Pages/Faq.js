@@ -7,7 +7,7 @@ function Faq(){
   return (
     <div>
         
-       <Faqa/>
+         <Faqa/>
         <DevProfile/>
         
     </div>

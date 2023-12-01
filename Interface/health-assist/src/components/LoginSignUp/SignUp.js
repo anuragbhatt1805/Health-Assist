@@ -18,7 +18,6 @@ const Signup = ({ switchToLogin }) => {
      await axios.post("",{
       abhaId,email, phoneNo,name,password,dob
      });
-
   };
 
   return (

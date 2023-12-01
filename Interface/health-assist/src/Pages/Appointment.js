@@ -8,8 +8,6 @@ function Appointment() {
     <div>
       <Hero/>
       <Hero2/>
-      
-
     </div>
   )
 }
