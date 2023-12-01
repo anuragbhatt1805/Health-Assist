@@ -1,7 +1,7 @@
 import React from 'react'
-import ChatWindow from '../components/Chat/chatwindow'
+import ChatWindow from '../components/Chat /ChatComponent'
 
-function chat() {
+function chatpages() {
   return (
     <div>
         <ChatWindow/>
@@ -9,4 +9,4 @@ function chat() {
   )
 }
 
-export default chat
+export default chatpages
