@@ -5,6 +5,7 @@ import Login from './components/LoginSignUp/Login';
 import SignUp from './components/LoginSignUp/SignUp';
 import Home from './Pages/Home';
 import Appointment from './Pages/Appointment';
+import Profile from './Pages/Profile';
 import { BrowserRouter,Routes, Route} from 'react-router-dom'
 
 
@@ -12,6 +13,7 @@ import { BrowserRouter,Routes, Route} from 'react-router-dom'
 import React, { useState } from 'react';
 
 function App() {
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
   
   return (
     <div className="app">
@@ -24,6 +26,7 @@ function App() {
             <Route path='/login' element={<Login/>}/>
             <Route path='/signup' element={<SignUp/>}/>
             <Route path='/appointment' element={<Appointment/>}/>
+            <Route path='/profile' element={<Profile />} />
         </Routes>
         </BrowserRouter>
       {/* <NavBar/>

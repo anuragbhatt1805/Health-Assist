@@ -1,5 +1,3 @@
-// Login.js
-
 import React, { useState } from 'react';
 import './AuthForm.css'; // Import the CSS file for additional styling
 import { Link } from 'react-router-dom';
@@ -10,8 +8,38 @@ const Login = ({ switchToSignup }) => {
 
   const handleLogin = (e) => {
     e.preventDefault();
-    // Perform login logic (e.g., authentication) here using email and password
-    console.log('Login with:', email, password);
+
+    const data = new URLSearchParams();
+    data.append('email', email);
+    data.append('password', password);
+
+    fetch('/login', {
+      method: 'POST',
+      headers: {
+        'accept': 'application/json',
+        'Content-Type': 'application/x-www-form-urlencoded'
+      },
+      body: data
+    })
+      .then(response => response.json())
+      .then(data => {
+        if (data === null) {
+          alert('Invalid Credentials');
+          window.location.href = '/login';
+        } else {
+          // const COOKIE_NAME = 'AuthData';
+          // const d = new Date();
+          // d.setTime(d.getTime());
+          // const expires = 'expires=' + d.toUTCString();
+          // document.cookie = `access_token=${data.access_token}`;
+          // document.cookie = `user=${data.user};`;
+          // window.location.href = '/';
+        }
+      })
+      .catch(error => {
+        alert('Cannot Login Due to Some Internal Error');
+      });
+
     // Reset form fields after login
     setEmail('');
     setPassword('');
@@ -21,7 +49,7 @@ const Login = ({ switchToSignup }) => {
     <div className="d-flex justify-content-center align-items-center vh-100">
       <div className="auth-form-container">
         <h2>Login</h2>
-        <form onSubmit={handleLogin} className="auth-form">
+        <form onSubmit={handleLogin} className="auth-form" method="post">
           <input
             type="email"
             placeholder="Email"

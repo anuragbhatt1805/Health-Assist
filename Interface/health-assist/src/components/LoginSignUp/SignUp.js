@@ -3,6 +3,7 @@
 import React, { useState } from 'react';
 import './AuthForm.css'; // Import the CSS file for additional styling
 import { Link } from 'react-router-dom';
+import axios from 'axios';
 
 const Signup = ({ switchToLogin }) => {
   const [abhaId, setAbhaId] = useState('');
@@ -12,20 +13,19 @@ const Signup = ({ switchToLogin }) => {
   const [password, setPassword] = useState('');
   const [dob, setDob] = useState('');
 
-  const handleSignup = (e) => {
+  const handleSignup = async(e) => {
     e.preventDefault();
-    // Perform signup logic (e.g., registration) here using email and password
-    console.log('Signup with:', email, password);
-    // Reset form fields after signup
-    setEmail('');
-    setPassword('');
+     await axios.post("",{
+      abhaId,email, phoneNo,name,password,dob
+     });
+
   };
 
   return (
     <div className="d-flex justify-content-center align-items-center vh-100">
       <div className="auth-form-container">
         <h2>Signup</h2>
-        <form onSubmit={handleSignup} className="auth-form">
+        <form onSubmit={handleSignup} className="auth-form" method="post">
           <input
             type="text"
             placeholder="Abha ID"
@@ -68,7 +68,7 @@ const Signup = ({ switchToLogin }) => {
             onChange={(e) => setDob(e.target.value)}
             required
           />
-          <button type="submit" className="btn btn-primary">Signup</button>
+          <Link to="/login"><button type="submit" className="btn btn-primary">Signup</button></Link>
         </form>
         <p>Already have an account? <Link to="/login">Login</Link></p>
       </div>

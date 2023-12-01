@@ -21,7 +21,10 @@ const Header = () => {
         <Link to="/faq">FAQ</Link>
       </div>
       {isLoggedIn ? (
-        <button onClick={handleLogout}>Logout</button>
+        <div>
+          <Link to="/profile">Profile</Link>
+          <button onClick={handleLogout}>Logout</button>
+        </div>
       ) : (
         <Link to="/login">Login / Signup</Link>
       )}
