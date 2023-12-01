@@ -1,12 +1,12 @@
-from django.shortcuts import render
 from rest_framework import (
     generics, authentication, permissions,
-    viewsets, status, mixins
+    viewsets, filters, mixins, status
 )
-import uuid
 from rest_framework.authtoken.views import ObtainAuthToken
 from rest_framework.settings import api_settings
 from rest_framework.exceptions import PermissionDenied
+from rest_framework.decorators import action
+from rest_framework.response import Response
 from core.serializer import *
 from core.permissions import UpdateOwnProfile
 
@@ -30,6 +30,9 @@ class ManageUserView(viewsets.ModelViewSet,
     serializer_class = UserDetailSerializer
     permission_classes = (permissions.IsAuthenticated, UpdateOwnProfile)
     authentication_classes = (authentication.TokenAuthentication,)
+    filter_backends = (filters.SearchFilter, filters.OrderingFilter)
+    search_fields = ('name', 'email', 'phone', 'profession')
+    filter_fields = ('is_staff')
     queryset = User.objects.all()
 
     def get_queryset(self):
@@ -44,8 +47,7 @@ class ManageUserView(viewsets.ModelViewSet,
 
     def get_object(self):
         user = self.request.user
-
-        if user.is_staff:
+        if user.is_staff or user.is_superuser:
             return self.get_queryset().get(pk=self.kwargs['pk'])
         else:
             # Non-staff users can only view and manage their own profile
@@ -63,7 +65,7 @@ class ManageUserView(viewsets.ModelViewSet,
 
         else:
             profile = self.get_object()
-            if profile.id == str(user.id) or user.is_superuser:
+            if str(profile.id) == str(user.id) or user.is_superuser:
                 return UserDetailSerializer
 
             elif user.is_staff:

@@ -7,7 +7,7 @@ def report_file_name(instance, filepath):
     "Function for report Picture"
     ext = os.path.splitext(filepath)[1]
     filename = f"{uuid.uuid4()}{ext}"
-    return os.path.join('uploads', 'reports', filename)
+    return os.path.join('reports', filename)
 
 
 class Sickness(models.Model):
@@ -33,3 +33,16 @@ class Appointment(models.Model):
     prescription = models.CharField(max_length=255)
     report = models.ManyToManyField(ReportFile)
     objects = models.Manager()
+
+    def create(self, request):
+        serializer = self.get_serializer(data=request.data)
+        serializer.is_valid(raise_exception=True)
+
+        # Check if the provided doctor is a staff user
+        doctor = serializer.validated_data['doctor']
+        if not doctor.is_staff:
+            raise ValueError({"doctor": "Only staff users can be added as doctors."})
+
+        # Create the appointment instance
+        return self.perform_create(serializer)
+
