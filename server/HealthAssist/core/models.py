@@ -13,7 +13,7 @@ def profile_file_name(instance, filepath):
     "Function for Profile Picture"
     ext = os.path.splitext(filepath)[1]
     filename = f"{uuid.uuid4()}{ext}"
-    return os.path.join('uploads', 'profile', filename)
+    return os.path.join('profile', filename)
 
 
 # Custom Manager for Models
