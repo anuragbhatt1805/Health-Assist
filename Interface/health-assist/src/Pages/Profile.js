@@ -1,31 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
 const Profile = () => {
-  const fetchData = async () => {
-    try {
-      const response = await fetch("http://192.168.174.23:8000/core/manage/user/7c3d3a42-9ece-4bbc-bc24-1fa7c1ea7e14/", {
-        method: 'GET',
-        headers: {
-          'Content-Type': 'application/json',
-          // Add any other required headers
-        },
-        mode: 'cors' // Ensure the mode is set to 'cors'
-      });
-  
-      if (!response.ok) {
-        throw new Error('Network response was not ok.');
-      }
-  
-      const data = await response.json();
-      console.log(data);
-    } catch (error) {
-      console.error('There was a problem with the fetch operation:', error);
-    }
-  };
-  
-  fetchData();
-  
-  // State to manage profile data
   const [profileData, setProfileData] = useState({
     abhaId: '123456',
     name: 'John Doe',
@@ -39,15 +14,23 @@ const Profile = () => {
     profession: 'Doctor',
   });
 
-  // Load profile data from localStorage on component mount
   useEffect(() => {
-    const storedProfile = localStorage.getItem('profile');
-    if (storedProfile) {
-      setProfileData(JSON.parse(storedProfile));
-    }
+    const fetchData = async () => {
+      try {
+        const response = await fetch("http://192.168.174.23:8000/core/manage/user/7c3d3a42-9ece-4bbc-bc24-1fa7c1ea7e14/");
+        if (!response.ok) {
+          throw new Error('Network response was not ok.');
+        }
+        const data = await response.json();
+        setProfileData(data); // Assuming the data structure is similar to the profileData state
+      } catch (error) {
+        console.error('There was a problem fetching the profile data:', error);
+      }
+    };
+
+    fetchData();
   }, []);
 
-  // Function to handle changes in profile data
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setProfileData({
@@ -56,11 +39,9 @@ const Profile = () => {
     });
   };
 
-  // Function to save profile data locally
   const saveProfile = () => {
     localStorage.setItem('profile', JSON.stringify(profileData));
   };
-
   return (
     <div className="container mt-5">
       <div className="row">
