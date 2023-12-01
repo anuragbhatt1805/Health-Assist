@@ -1,5 +1,5 @@
 import React from 'react'
-import ChatWindow from '../components/Chat /ChatComponent'
+import ChatWindow from '../components/Chat/ChatComponent'
 
 function chatpages() {
   return (
