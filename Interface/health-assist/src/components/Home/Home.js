@@ -2,6 +2,7 @@
 
 import React from 'react';
 import './Home.css'; // Import the CSS file for styling
+import imgdoc from '../images/docimg.jpg'
 
 const Home = () => {
   return (
@@ -12,7 +13,7 @@ const Home = () => {
           <p>Your trusted healthcare provider</p>
           <button>Book an Appointment</button>
         </div>
-        <img src="doctor-image.jpg" alt="Doctor" className="doctor-image" />
+        <img src={imgdoc} alt="Doctor" className="doctor-image" />
       </section>
 
       <section className="features-section">
