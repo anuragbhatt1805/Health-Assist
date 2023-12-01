@@ -95,3 +95,17 @@ class ManageInsuranceView(viewsets.ModelViewSet,
     def get_object(self):
         """Retrieve and return authenticated user"""
         return Insurance.objects.get(id=self.request.user.insurance)
+
+class ManageProfileView(viewsets.ModelViewSet,
+                        mixins.RetrieveModelMixin,
+                        mixins.UpdateModelMixin,
+                        mixins.DestroyModelMixin):
+    """Manage the authenticated user"""
+    serializer_class = UserDetailSerializer
+    permission_classes = (permissions.IsAuthenticated,)
+    authentication_classes = (authentication.TokenAuthentication,)
+    queryset = User.objects.all()
+
+    def get_queryset(self):
+        print(self.request.user.id, "==============+++++++++++=======")
+        return User.objects.get(id=self.request.user.id)
