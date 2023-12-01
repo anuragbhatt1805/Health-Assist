@@ -15,6 +15,13 @@ class InsuranceSerializer(serializers.ModelSerializer):
     class Meta:
         model = Insurance
         fields = ('id', 'company', 'policy', 'amount', 'expiry')
+        extra_kwargs = {
+            'id': {'required': False},
+            'company': {'required': False},
+            'policy': {'required': False},
+            'amount': {'required': False},
+            'expiry': {'required': False},
+        }
 
 
 class UserSerializer(serializers.ModelSerializer):
@@ -81,6 +88,14 @@ class AuthTokenSerializer(serializers.Serializer):
         return attrs
 
 
+# class ProfilePictureSerializer(serializers.ModelSerializer):
+#     """Serializer for uploading images to users"""
+
+#     class Meta:
+#         model = get_user_model()
+#         fields = ('id', 'profile')
+#         read_only_fields = ('id',)
+
 class UserDetailSerializer(UserSerializer):
 
     insurance = InsuranceSerializer()
@@ -91,6 +106,9 @@ class UserDetailSerializer(UserSerializer):
             'height', 'weight', 'blood_group', 'insurance',
         ]
         read_only_fields = UserSerializer.Meta.read_only_fields
+        extra_kwargs = {
+            'password': {'required': False, 'write_only': True},
+        }
 
 class DoctorDetailSerializer(UserSerializer):
 
