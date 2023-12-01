@@ -11,8 +11,7 @@ function Home() {
         <h1 className='pt5'>Review</h1>
         <div className="row">
             <Card/>
-            <Card/>
-            <Card/>
+            
         </div>
         
     </div>
