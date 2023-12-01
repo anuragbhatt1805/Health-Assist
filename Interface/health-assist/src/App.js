@@ -4,8 +4,12 @@ import NavBar from './components/navb/NavBar';
 import Login from './components/LoginSignUp/Login';
 import SignUp from './components/LoginSignUp/SignUp';
 import Home from './Pages/Home';
+<<<<<<< HEAD
 import Appointment from './Pages/Appointment';
 import Profile from './Pages/Profile';
+=======
+import Faq from './Pages/Faq';
+>>>>>>> 7c07f3a (Intital DevProfile Card and FAQ pages)
 import { BrowserRouter,Routes, Route} from 'react-router-dom'
 
 
@@ -25,8 +29,12 @@ function App() {
             <Route index element={<Home/>}/>
             <Route path='/login' element={<Login/>}/>
             <Route path='/signup' element={<SignUp/>}/>
+<<<<<<< HEAD
             <Route path='/appointment' element={<Appointment/>}/>
             <Route path='/profile' element={<Profile />} />
+=======
+            <Route path='/faq' element={<Faq/>}/>
+>>>>>>> 7c07f3a (Intital DevProfile Card and FAQ pages)
         </Routes>
         </BrowserRouter>
       {/* <NavBar/>

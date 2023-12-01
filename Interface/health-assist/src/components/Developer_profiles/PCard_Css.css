@@ -1,0 +1,9 @@
+.Profile{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    justify-content: space-around;
+    margin-left: 5%;
+}
+.card{
+    width:  15rem;
+}
