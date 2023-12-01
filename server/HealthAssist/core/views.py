@@ -6,7 +6,8 @@ from rest_framework.authtoken.views import ObtainAuthToken
 from rest_framework.settings import api_settings
 from rest_framework.exceptions import PermissionDenied
 from rest_framework.decorators import action
-from rest_framework.response import Response
+from rest_framework.views import APIView
+from django.shortcuts import redirect
 from core.serializer import *
 from core.permissions import UpdateOwnProfile
 
@@ -96,16 +97,13 @@ class ManageInsuranceView(viewsets.ModelViewSet,
         """Retrieve and return authenticated user"""
         return Insurance.objects.get(id=self.request.user.insurance)
 
-class ManageProfileView(viewsets.ModelViewSet,
-                        mixins.RetrieveModelMixin,
-                        mixins.UpdateModelMixin,
-                        mixins.DestroyModelMixin):
-    """Manage the authenticated user"""
-    serializer_class = UserDetailSerializer
-    permission_classes = (permissions.IsAuthenticated,)
-    authentication_classes = (authentication.TokenAuthentication,)
-    queryset = User.objects.all()
+class ManageProfileView(APIView):
+    """Handle requests to the 'me' endpoint"""
 
-    def get_queryset(self):
-        print(self.request.user.id, "==============+++++++++++=======")
-        return User.objects.get(id=self.request.user.id)
+    authentication_classes = (authentication.TokenAuthentication,)
+
+    def get(self, request):
+        """Handle GET requests to the 'me' endpoint"""
+        user_id = request.user.id
+        redirect_url = f"../user/{user_id}"
+        return redirect(redirect_url)
