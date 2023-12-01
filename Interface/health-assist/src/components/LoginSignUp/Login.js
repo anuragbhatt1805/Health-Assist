@@ -27,6 +27,7 @@ const Login = ({ switchToSignup }) => {
           alert('Invalid Credentials');
           window.location.href = '/login';
         } else {
+          
           // const COOKIE_NAME = 'AuthData';
           // const d = new Date();
           // d.setTime(d.getTime());
