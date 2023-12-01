@@ -41,12 +41,14 @@ function Hero2() {
               <button
                 className="btn btn-primary me-3"
                 onClick={() => handleScheduleAppointment(doctor.name)}
+                style={{ backgroundColor: '#4fa3a3' }}
               >
                 Schedule Appointment
               </button>
               <button
                 className="btn btn-primary"
                 onClick={() => handleChat(doctor.name)}
+                style={{ backgroundColor: '#4fa3a3' }}
               >
                 Chat
               </button>

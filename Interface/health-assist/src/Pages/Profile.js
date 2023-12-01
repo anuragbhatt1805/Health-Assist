@@ -1,13 +1,30 @@
 import React, { useState, useEffect } from 'react';
 
 const Profile = () => {
-    const abc=fetch().then((Response)=>{
-      return Response.json()
-    }).then((data)=>{
+  const fetchData = async () => {
+    try {
+      const response = await fetch("http://192.168.174.23:8000/core/manage/user/7c3d3a42-9ece-4bbc-bc24-1fa7c1ea7e14/", {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json',
+          // Add any other required headers
+        },
+        mode: 'cors' // Ensure the mode is set to 'cors'
+      });
+  
+      if (!response.ok) {
+        throw new Error('Network response was not ok.');
+      }
+  
+      const data = await response.json();
       console.log(data);
-    }).catch((err)=>{
-      console.log(err);
-    })
+    } catch (error) {
+      console.error('There was a problem with the fetch operation:', error);
+    }
+  };
+  
+  fetchData();
+  
   // State to manage profile data
   const [profileData, setProfileData] = useState({
     abhaId: '123456',
