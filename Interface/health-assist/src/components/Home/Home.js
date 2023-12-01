@@ -6,6 +6,7 @@ import imgdoc from '../images/docimg.jpg'
 
 const Home = () => {
   return (
+    
     <div className="home-page">
       <section className="hero-section">
         <div className="text-content">
