@@ -7,6 +7,7 @@ router = DefaultRouter()
 
 router.register('user', views.ManageUserView)
 router.register('insurance', views.ManageInsuranceView)
+router.register('me', views.ManageProfileView)
 
 app_name = 'core'
 
