@@ -1,10 +1,12 @@
+// Header.js
+
 import React, { useState } from 'react';
 import './NavB.css'; // Import the CSS file for styling
 import { Link } from 'react-router-dom';
 
 const Header = () => {
   // Example state for user login status
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(true);
 
   const handleLogout = () => {
     // Perform logout logic here (e.g., clear authentication)

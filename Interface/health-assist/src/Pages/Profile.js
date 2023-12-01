@@ -3,7 +3,13 @@
 import React, { useState, useEffect } from 'react';
 
 const Profile = () => {
-    const abc=fetch().then(Response)
+    const abc=fetch().then((Response)=>{
+      return Response.json()
+    }).then((data)=>{
+      console.log(data);
+    }).catch((err)=>{
+      console.log(err);
+    })
   // State to manage profile data
   const [profileData, setProfileData] = useState({
     abhaId: '123456',
